@@ -8,14 +8,13 @@ module.exports = {
         var requestUrl = `${OPEN_WEATHER_MAP_URL}&q=${encodedLocation}`
 
         return Axios.get(requestUrl).then(function (res) {
-            //if (res.data.cod && res.data.message) {
-            if (0) {
-                throw new Error(`${res.data.cod} | ${res.data.message}`);
+            if (res.data.cod && res.data.count == 0) {
+                throw new Error(`City not found: ${location}`);
             } else {
                 return res.data.list[0].main.temp;
             }
         }, function (res) {
-            throw new Error(res.data.message);
+            throw new Error(res.message);
         });
     }
 };
