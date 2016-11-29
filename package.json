@@ -4,6 +4,7 @@
   "description": "A simple React app to tell you the temperature.",
   "main": "index.js",
   "scripts": {
+    "postinstall": "webpack --progress --colors",
     "start": "node ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
